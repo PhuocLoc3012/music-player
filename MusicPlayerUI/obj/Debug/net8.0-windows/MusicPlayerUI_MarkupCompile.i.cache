@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\WPF\MusicPlayer\MusicPlayerUI\App.xaml
-11407045341
+21578840606
 
-6-408058715
+7-809232713
 1981385397204
-MainWindow.xaml;
+MainWindow.xaml;SongInfo.xaml;
 
 True
 

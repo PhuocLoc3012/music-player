@@ -3,8 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:MusicPlayerUI"
         xmlns:local="clr-namespace:MusicPlayerUI"
         mc:Ignorable="d"
+
         Title="MainWindow" Height="450" Width="800"
         FontFamily="Arial" Loaded="Window_Loaded"
         >
@@ -15,7 +17,7 @@
         </Style>
     </Window.Resources>
     <Grid>
-        
+        <Grid x:Name="GridTop10">
         <Grid.RowDefinitions >
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -32,16 +34,16 @@
 
 
             <Grid Grid.Column="0">
-                <ToggleButton>BXH Việt Nam</ToggleButton>
+                <ToggleButton IsChecked="{Binding IsCheckVN}">BXH Việt Nam</ToggleButton>
             </Grid>
 
             <Grid Grid.Column="1">
 
-                <ToggleButton>BXH Âu Mỹ</ToggleButton>
+                    <ToggleButton IsChecked="{Binding IsCheckEU}">BXH Âu Mỹ</ToggleButton>
 
             </Grid>
             <Grid Grid.Column="2">
-                <ToggleButton>BXH Hàn Quốc</ToggleButton>
+                    <ToggleButton IsChecked="{Binding IsCheckKO}">BXH Hàn Quốc</ToggleButton>
             </Grid>
         </Grid>
         
@@ -57,7 +59,8 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="100px"></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50px"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
                                 <Grid Grid.Column="0">
                                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">01</TextBlock>
                                 </Grid>
@@ -73,11 +76,16 @@
                                         <TextBlock HorizontalAlignment="Left">Tên ca sĩ</TextBlock>
                                     </Grid>
                                 </Grid>
+                                    <Grid Grid.Column="2">
+                                        <Button x:Name="PlayButton" Click="PlayButton_Click" >Play</Button>
+                                    </Grid>
                             </Grid>
                         </Border>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
+        </Grid>
+        <uc:SongInfo x:Name="UCSongInfo" Visibility="Hidden"></uc:SongInfo>
     </Grid>
 </Window>
